@@ -88,7 +88,8 @@
       function () {
         if (openingBg) {
           openingBg.classList.add("zoom-ready");
-          openingBg.style.animation = "cameraZoom 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both";
+          openingBg.style.animation =
+            "cameraZoom 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both";
         }
         setTimeout(
           function () {
