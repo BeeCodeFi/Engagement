@@ -1114,6 +1114,16 @@ h3 {
     transform 0.4s ease;
 }
 
+.char-span--space {
+  width: 0.8em;
+  min-width: 0.8em;
+  margin-right: 0.18em;
+}
+
+.char-span:not(.char-span--space) {
+  margin-right: 0.02em;
+}
+
 .char-span.revealed {
   opacity: 1;
   transform: translateY(0);
@@ -1625,15 +1635,31 @@ h3 {
 
 .family-grid p {
   margin: 0;
-  padding: 8px 12px 4px;
+  padding: 10px 14px 6px;
   color: var(--ink-mid);
   /* was #5c504d — now deeper */
   font-family: var(--font-serif);
-  font-size: 18px;
-  line-height: 2.2;
-  letter-spacing: 0.04em;
+  font-size: 20px;
+  line-height: 2.6;
+  letter-spacing: 0.08em;
+  word-spacing: 0.52em;
   font-style: italic;
   font-weight: 400;
+}
+
+.family-name-block {
+  display: block;
+}
+
+.family-line {
+  display: block;
+  margin-bottom: 0.15em;
+}
+
+.family-word {
+  display: inline-block;
+  margin-right: 0.52em;
+  white-space: nowrap;
 }
 
 /* ════════════════════════════════════════════════════════════

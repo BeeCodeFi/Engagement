@@ -327,6 +327,13 @@
       invitation.style.opacity = "1";
       invitation.classList.add("visible");
       invitation.setAttribute("aria-hidden", "false");
+
+      document.querySelectorAll(".char-reveal").forEach(function (el) {
+        if (el.dataset.charBuilt === "true") return;
+        animateChars(el);
+        el.dataset.charBuilt = "true";
+      });
+
       window.scrollTo({ top: 0, behavior: "auto" });
 
       setupRevealObserver();
@@ -356,6 +363,9 @@
     });
     document.querySelectorAll(".char-span").forEach(function (s) {
       s.classList.remove("revealed");
+    });
+    document.querySelectorAll(".char-reveal").forEach(function (el) {
+      delete el.dataset.charBuilt;
     });
     document.querySelectorAll(".word").forEach(function (w) {
       w.classList.remove("revealed");
@@ -435,6 +445,14 @@
   // Animate chars in a paragraph (Indian family names)
   // Uses a temp div to decode HTML entities before splitting
   function animateChars(el) {
+    if (
+      !el ||
+      el.querySelector(".family-line") ||
+      el.querySelector(".family-word")
+    ) {
+      return;
+    }
+
     // Get lines by splitting on <br> tags while preserving them as markers
     var rawHtml = el.innerHTML;
     var parts = rawHtml.split(/(<br\s*\/?>\s*)/i);
@@ -455,13 +473,22 @@
           .split("")
           .map(function (ch) {
             var delay = charIdx++ * 20;
-            // Re-encode only the characters that need it
-            var safe = ch === "<" ? "&lt;" : ch === ">" ? "&gt;" : ch;
+            var isSpace = ch === " " || ch === "\u00A0";
+            var safe =
+              ch === "<"
+                ? "&lt;"
+                : ch === ">"
+                  ? "&gt;"
+                  : ch === "&"
+                    ? "&amp;"
+                    : ch;
             return (
-              '<span class="char-span" style="transition-delay:' +
+              '<span class="char-span' +
+              (isSpace ? " char-span--space" : "") +
+              '" style="transition-delay:' +
               delay +
               'ms">' +
-              safe +
+              (isSpace ? "&nbsp;" : safe) +
               "</span>"
             );
           })
