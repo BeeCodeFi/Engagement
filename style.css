@@ -66,6 +66,8 @@ button,
 a {
   font: inherit;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -435,6 +437,7 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
 }
 
 .bg-img {
@@ -444,6 +447,7 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  pointer-events: none;
   transition:
     opacity 1.4s var(--ease-luxury),
     visibility 0s linear 0.2s;
@@ -660,7 +664,10 @@ h3 {
   position: absolute;
   left: 50%;
   top: 62%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   z-index: 4;
   width: 90px;
   height: 90px;
@@ -705,14 +712,12 @@ h3 {
 @keyframes sealReveal {
   from {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.7);
-    filter: blur(4px);
+    transform: translate3d(-50%, -50%, 0) scale(0.7);
   }
 
   to {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    filter: blur(0);
+    transform: translate3d(-50%, -50%, 0) scale(1);
   }
 }
 
@@ -852,6 +857,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  pointer-events: none;
   animation: nudgeFade 1.5s 2.5s both;
 }
 
@@ -862,6 +868,7 @@ h3 {
   border-right: 1.5px solid rgba(230, 200, 140, 0.7);
   border-bottom: 1.5px solid rgba(230, 200, 140, 0.7);
   transform: rotate(45deg);
+  pointer-events: none;
   animation: nudgeArrow 1.8s ease-in-out infinite;
 }
 

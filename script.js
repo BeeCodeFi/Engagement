@@ -93,10 +93,10 @@
           function () {
             if (openButton) openButton.classList.add("revealed");
           },
-          reduceMotion ? 0 : 4500
+          reduceMotion ? 0 : 4500,
         ); // matches the cameraZoom animation duration in CSS
       },
-      reduceMotion ? 0 : 1000
+      reduceMotion ? 0 : 1000,
     );
   }
 
@@ -536,6 +536,14 @@
   // Event listeners
   if (openButton) {
     openButton.addEventListener("click", showInvitation);
+    openButton.addEventListener(
+      "touchend",
+      function (e) {
+        e.preventDefault();
+        showInvitation();
+      },
+      { passive: false },
+    );
     openButton.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
