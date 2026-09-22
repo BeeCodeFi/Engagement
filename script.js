@@ -84,8 +84,9 @@
   }
 
   function startZoomSequence() {
-    // 1s of stillness feels intentional; jumping straight into the
-    // zoom on dismiss reads as abrupt.
+    // Keep a deterministic reveal sequence even when Safari throttles or defers
+    // asset loads. The key is to start the zoom and reveal reliably, not to wait
+    // on a fragile image-load gate.
     setTimeout(
       function () {
         if (openingBg) openingBg.classList.add("zoom-ready");
@@ -94,7 +95,7 @@
             if (openButton) openButton.classList.add("revealed");
           },
           reduceMotion ? 0 : 4500,
-        ); // matches the cameraZoom animation duration in CSS
+        );
       },
       reduceMotion ? 0 : 1000,
     );
@@ -111,16 +112,30 @@
     startZoomSequence();
   }
 
+  function beginLoaderSequence() {
+    var elapsed = Date.now() - startedAt;
+    var remaining = Math.max(MIN_VISIBLE_MS - elapsed, 0);
+    setTimeout(dismissPreloader, remaining);
+  }
+
   var loadPromise = Promise.all(CRITICAL_IMAGES.map(preloadImage));
   var timeoutPromise = new Promise(function (resolve) {
     setTimeout(resolve, MAX_WAIT_MS);
   });
 
   Promise.race([loadPromise, timeoutPromise]).then(function () {
-    var elapsed = Date.now() - startedAt;
-    var remaining = Math.max(MIN_VISIBLE_MS - elapsed, 0);
-    setTimeout(dismissPreloader, remaining);
+    beginLoaderSequence();
+  }).catch(function () {
+    beginLoaderSequence();
   });
+
+  // Fallback for browsers that never settle the image gate reliably (notably some
+  // iOS Safari cases with local file access or deferred image timing).
+  setTimeout(function () {
+    if (preloader && preloader.style.display !== "none") {
+      dismissPreloader();
+    }
+  }, MAX_WAIT_MS + 200);
 
   /* ════════════════════════════════════════════════════════════
      2. FLOATING PETALS (opening screen)
