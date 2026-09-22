@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#1a0f0b" />
+    <meta
+      name="description"
+      content="Harshikha & Ayush Engagement Ceremony — 02 December 2026, The Retreat Continental, Ranchi"
+    />
+    <title>Harshikha &amp; Ayush — Engagement</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ══ Preloader Curtain ══════════════════════════════════ -->
+    <div id="preloader" role="status" aria-label="Loading invitation">
+      <div class="curtain-left"></div>
+      <div class="curtain-right"></div>
+      <div class="preloader-inner">
+        <div class="preloader-om">ॐ</div>
+        <div class="preloader-names">Harshikha &amp; Ayush</div>
+        <p class="preloader-tagline">The invitation is on its way…</p>
+        <div class="preloader-bar">
+          <div class="preloader-bar__fill" id="preloaderFill"></div>
+        </div>
+        <div class="preloader-percent" id="preloaderPercent">0%</div>
+      </div>
+    </div>
+
+    <!-- ══ Scroll Progress Bar ═══════════════════════════════ -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ══ Site ══════════════════════════════════════════════ -->
+    <div class="site" id="site">
+      <!-- ── Opening / Envelope Screen ──────────────────────── -->
+      <section class="opening" id="opening" aria-label="Open invitation">
+        <!-- Photorealistic background — full bleed -->
+        <div class="opening-bg" aria-hidden="true">
+          <img
+            id="bgClosed"
+            src="assets/envelope-closed.png"
+            alt=""
+            class="bg-img bg-img--closed active"
+          />
+        </div>
+
+        <!-- Floating petals layer -->
+        <div class="petal-field" aria-hidden="true"></div>
+
+        <!-- Text overlay — fades in with photo, stays above seal -->
+
+        <!-- ── Wax Seal Button — centered over background envelope seal ── -->
+        <button
+          class="seal-btn"
+          id="openInvitation"
+          type="button"
+          aria-label="Tap to open the engagement invitation"
+        >
+          <span
+            class="seal-btn__ring seal-btn__ring--outer"
+            aria-hidden="true"
+          ></span>
+          <span
+            class="seal-btn__ring seal-btn__ring--inner"
+            aria-hidden="true"
+          ></span>
+          <span class="seal-btn__monogram">H &amp;A</span>
+          <span class="seal-btn__label">Tap to Open</span>
+        </button>
+
+        <!-- Scroll nudge arrow -->
+        <div class="scroll-nudge" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </section>
+
+      <!-- ── Main Invitation ─────────────────────────────────── -->
+      <main class="invitation" id="invitation" aria-hidden="true">
+        <!-- HERO ────────────────────────────────────────────── -->
+        <header class="hero">
+          <div class="hero-backdrop" aria-hidden="true"></div>
+          <div class="hero-frame" aria-hidden="true"></div>
+
+          <!-- Content side -->
+          <div class="hero-content">
+            <div
+              class="hero-mark anim-item"
+              data-anim="fade-up"
+              data-delay="0"
+              aria-hidden="true"
+            >
+              ॐ
+            </div>
+
+            <div
+              class="section-eyebrow-line anim-item"
+              data-anim="fade-up"
+              data-delay="100"
+            >
+              <p class="eyebrow">Engagement Invitation</p>
+            </div>
+
+            <p
+              class="hero-quote anim-item"
+              data-anim="fade-up"
+              data-delay="200"
+            >
+              "What began as a beautiful bond<br />has grown into a promise of a
+              lifetime."
+            </p>
+            <span
+              class="quote-line anim-item"
+              data-anim="wipe-right"
+              data-delay="350"
+              aria-hidden="true"
+            ></span>
+
+            <div class="names anim-item" data-anim="fade-up" data-delay="300">
+              <!-- Each letter individually animated -->
+              <span class="split-text" data-text="Harshikha"></span>
+              <small>and</small>
+              <span class="split-text" data-text="Ayush"></span>
+            </div>
+
+            <p
+              class="intro-text anim-item"
+              data-anim="fade-up"
+              data-delay="450"
+            >
+              Together with their families, we cordially invite you<br />
+              to celebrate their engagement ceremony.
+            </p>
+
+            <!-- Photo side -->
+            <div
+              class="hero-photo anim-item"
+              data-anim="fade-left"
+              data-delay="200"
+            >
+              <div class="photo-frame">
+                <span
+                  class="photo-corner photo-corner--tl"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="photo-corner photo-corner--tr"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="photo-corner photo-corner--bl"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="photo-corner photo-corner--br"
+                  aria-hidden="true"
+                ></span>
+                <!-- Indian mandala corner decorations -->
+                <span
+                  class="mandala-corner mandala-corner--tl"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="mandala-corner mandala-corner--tr"
+                  aria-hidden="true"
+                ></span>
+                <img
+                  src="assets/couple-4.png"
+                  alt="Harshikha and Ayush together"
+                  loading="eager"
+                />
+              </div>
+            </div>
+
+            <div
+              class="countdown anim-item"
+              data-anim="fade-up"
+              data-delay="550"
+              aria-label="Countdown to the engagement"
+            >
+              <div class="timer-item"><b id="days">00</b><span>Days</span></div>
+              <div class="timer-item">
+                <b id="hours">00</b><span>Hours</span>
+              </div>
+              <div class="timer-item">
+                <b id="minutes">00</b><span>Minutes</span>
+              </div>
+              <div class="timer-item">
+                <b id="seconds">00</b><span>Seconds</span>
+              </div>
+            </div>
+            <p class="countdown-status" id="countdownStatus" aria-live="polite">
+              Counting down to our big day
+            </p>
+          </div>
+        </header>
+
+        <!-- DETAILS ─────────────────────────────────────────── -->
+        <section class="details-section" aria-label="Event details">
+          <!-- Indian border top -->
+          <div class="indian-border indian-border--top" aria-hidden="true">
+            <svg
+              viewBox="0 0 400 24"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0,12 Q50,0 100,12 Q150,24 200,12 Q250,0 300,12 Q350,24 400,12"
+                fill="none"
+                stroke="#b88a4a"
+                stroke-width="1"
+                opacity="0.5"
+              />
+              <circle cx="200" cy="12" r="4" fill="#b88a4a" opacity="0.6" />
+              <circle cx="100" cy="12" r="3" fill="#b88a4a" opacity="0.4" />
+              <circle cx="300" cy="12" r="3" fill="#b88a4a" opacity="0.4" />
+            </svg>
+          </div>
+
+          <div class="section-eyebrow-line anim-item" data-anim="fade-up">
+            <p class="eyebrow">Save the Date</p>
+          </div>
+          <h2
+            class="section-heading anim-item"
+            data-anim="fade-up"
+            data-delay="100"
+          >
+            Our Special Evening
+          </h2>
+          <p
+            class="section-copy anim-item"
+            data-anim="fade-up"
+            data-delay="200"
+          >
+            Two hearts, two families, one beautiful journey.<br />
+            Your presence will make this celebration even more special.
+          </p>
+
+          <div class="details-grid">
+            <article
+              class="detail-card indian-card anim-item"
+              data-anim="fade-up"
+              data-delay="0"
+            >
+              <div class="indian-card-border" aria-hidden="true"></div>
+              <div class="detail-icon" aria-hidden="true">📅</div>
+              <span>Date</span>
+              <strong
+                class="word-reveal"
+                data-words="Wednesday|02 December 2026"
+                >Wednesday<br />02 December 2026</strong
+              >
+            </article>
+            <article
+              class="detail-card indian-card anim-item"
+              data-anim="fade-up"
+              data-delay="120"
+            >
+              <div class="indian-card-border" aria-hidden="true"></div>
+              <div class="detail-icon" aria-hidden="true">🕕</div>
+              <span>Time</span>
+              <strong class="word-reveal" data-words="6:00 PM|Onwards"
+                >6:00 PM<br />Onwards</strong
+              >
+            </article>
+            <article
+              class="detail-card indian-card anim-item"
+              data-anim="fade-up"
+              data-delay="240"
+            >
+              <div class="indian-card-border" aria-hidden="true"></div>
+              <div class="detail-icon" aria-hidden="true">📍</div>
+              <span>Venue</span>
+              <strong class="word-reveal"
+                >The Retreat Continental<br />Vishnu Gali, Main Road,</strong
+              >
+            </article>
+          </div>
+
+          <div class="indian-border indian-border--bottom" aria-hidden="true">
+            <svg
+              viewBox="0 0 400 24"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0,12 Q50,24 100,12 Q150,0 200,12 Q250,24 300,12 Q350,0 400,12"
+                fill="none"
+                stroke="#b88a4a"
+                stroke-width="1"
+                opacity="0.5"
+              />
+              <circle cx="200" cy="12" r="4" fill="#b88a4a" opacity="0.6" />
+              <circle cx="100" cy="12" r="3" fill="#b88a4a" opacity="0.4" />
+              <circle cx="300" cy="12" r="3" fill="#b88a4a" opacity="0.4" />
+            </svg>
+          </div>
+        </section>
+
+        <!-- FAMILIES ────────────────────────────────────────── -->
+        <section class="families-section" aria-label="Families">
+          <div class="section-eyebrow-line anim-item" data-anim="fade-up">
+            <p class="eyebrow">With the blessings of our families</p>
+          </div>
+          <h2
+            class="section-heading anim-item"
+            data-anim="fade-up"
+            data-delay="100"
+          >
+            Together with their families
+          </h2>
+
+          <div class="family-grid">
+            <article
+              class="indian-card anim-item"
+              data-anim="fade-right"
+              data-delay="100"
+            >
+              <div class="indian-card-border" aria-hidden="true"></div>
+              <span class="family-label">Bride</span>
+              <p class="char-reveal">
+                D/o Dr. Nand Kishore Sinha<br />&amp; Mrs. Neelam Sinha
+              </p>
+            </article>
+            <article
+              class="indian-card anim-item"
+              data-anim="fade-left"
+              data-delay="200"
+            >
+              <div class="indian-card-border" aria-hidden="true"></div>
+              <span class="family-label">Groom</span>
+              <p class="char-reveal">
+                S/o Mr. Manoj Kumar Singh<br />&amp; Mrs. Ranjana Singh
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- VENUE ───────────────────────────────────────────── -->
+        <section class="venue-section" aria-label="Venue">
+          <div class="indian-border indian-border--top" aria-hidden="true">
+            <svg
+              viewBox="0 0 400 24"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0,12 Q50,0 100,12 Q150,24 200,12 Q250,0 300,12 Q350,24 400,12"
+                fill="none"
+                stroke="#b88a4a"
+                stroke-width="1"
+                opacity="0.4"
+              />
+              <circle cx="200" cy="12" r="4" fill="#b88a4a" opacity="0.5" />
+            </svg>
+          </div>
+
+          <div class="section-eyebrow-line anim-item" data-anim="fade-up">
+            <p class="eyebrow">Join us at</p>
+          </div>
+          <h2
+            class="venue-name section-heading anim-item"
+            data-anim="fade-up"
+            data-delay="100"
+          >
+            The Retreat Continental
+          </h2>
+          <p
+            class="venue-location anim-item"
+            data-anim="fade-up"
+            data-delay="200"
+          >
+            Vishnu Gali · Main Road · Ranchi-01 · Jharkhand
+          </p>
+
+          <!-- Cinematic slideshow -->
+          <div
+            class="venue-slideshow anim-item"
+            data-anim="scale-up"
+            data-delay="200"
+            id="venueSlideshow"
+            aria-label="Venue images"
+          >
+            <img
+              src="assets/hotel/hotel-3.png"
+              alt="Hotel venue — main building"
+              class="active"
+              id="slide-0"
+            />
+            <img
+              src="assets/hotel/hotel-1.png"
+              alt="Hotel venue — garden view"
+              id="slide-1"
+            />
+            <img
+              src="assets/hotel/hotel-2.png"
+              alt="Hotel venue — banquet hall"
+              id="slide-2"
+            />
+          </div>
+
+          <div
+            class="slideshow-dots anim-item"
+            data-anim="fade-up"
+            data-delay="350"
+            aria-hidden="true"
+          >
+            <button
+              class="dot active"
+              data-slide="0"
+              aria-label="Slide 1"
+            ></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+
+          <a
+            class="map-button anim-item"
+            data-anim="fade-up"
+            data-delay="450"
+            href="https://maps.app.goo.gl/aZDb4LGCRUdV6GWf6"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open venue in Google Maps"
+          >
+            Open in Google Maps <span aria-hidden="true">↗</span>
+          </a>
+        </section>
+
+        <!-- CLOSING ─────────────────────────────────────────── -->
+        <section class="closing" aria-label="Closing message">
+          <!-- Indian mandala decorative ring -->
+          <div
+            class="mandala-ring anim-item"
+            data-anim="scale-up"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="100"
+                cy="100"
+                r="90"
+                fill="none"
+                stroke="#b88a4a"
+                stroke-width="0.8"
+                opacity="0.3"
+              />
+              <circle
+                cx="100"
+                cy="100"
+                r="75"
+                fill="none"
+                stroke="#b88a4a"
+                stroke-width="0.5"
+                opacity="0.2"
+              />
+              <!-- Petal pattern -->
+              <g opacity="0.25">
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(0 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(45 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(90 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(135 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(180 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(225 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(270 100 100)"
+                />
+                <ellipse
+                  cx="100"
+                  cy="28"
+                  rx="8"
+                  ry="20"
+                  fill="#b88a4a"
+                  transform="rotate(315 100 100)"
+                />
+              </g>
+              <circle
+                cx="100"
+                cy="100"
+                r="12"
+                fill="none"
+                stroke="#b88a4a"
+                stroke-width="1"
+                opacity="0.4"
+              />
+              <text
+                x="100"
+                y="106"
+                text-anchor="middle"
+                font-size="14"
+                fill="#b88a4a"
+                opacity="0.6"
+                font-family="serif"
+              >
+                ♡
+              </text>
+            </svg>
+          </div>
+
+          <span
+            class="closing-heart anim-item"
+            data-anim="scale-up"
+            aria-hidden="true"
+            >♡</span
+          >
+
+          <div
+            class="section-eyebrow-line anim-item"
+            data-anim="fade-up"
+            data-delay="100"
+          >
+            <p class="eyebrow">02 · 12 · 2026</p>
+          </div>
+
+          <h2 class="anim-item" data-anim="fade-up" data-delay="200">
+            We can't wait to celebrate with you.
+          </h2>
+
+          <p class="anim-item" data-anim="fade-up" data-delay="300">
+            Your presence will make our celebration even more special.
+          </p>
+
+          <button
+            class="replay anim-item"
+            data-anim="fade-up"
+            data-delay="400"
+            id="replay"
+            type="button"
+          >
+            Replay Invitation
+          </button>
+        </section>
+      </main>
+    </div>
+    <!-- /.site -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
