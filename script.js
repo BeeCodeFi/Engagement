@@ -84,15 +84,19 @@
   }
 
   function startZoomSequence() {
-    // Keep a deterministic reveal sequence even when Safari throttles or defers
-    // asset loads. The key is to start the zoom and reveal reliably, not to wait
-    // on a fragile image-load gate.
     setTimeout(
       function () {
-        if (openingBg) openingBg.classList.add("zoom-ready");
+        if (openingBg) {
+          openingBg.classList.add("zoom-ready");
+          openingBg.style.animation = "cameraZoom 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both";
+        }
         setTimeout(
           function () {
-            if (openButton) openButton.classList.add("revealed");
+            if (openButton) {
+              openButton.classList.add("revealed");
+              openButton.style.opacity = "1";
+              openButton.style.pointerEvents = "auto";
+            }
           },
           reduceMotion ? 0 : 4500,
         );
@@ -108,6 +112,7 @@
     var curtainDuration = reduceMotion ? 400 : 1100;
     setTimeout(function () {
       preloader.style.display = "none";
+      preloader.style.visibility = "hidden";
     }, curtainDuration);
     startZoomSequence();
   }
@@ -123,11 +128,13 @@
     setTimeout(resolve, MAX_WAIT_MS);
   });
 
-  Promise.race([loadPromise, timeoutPromise]).then(function () {
-    beginLoaderSequence();
-  }).catch(function () {
-    beginLoaderSequence();
-  });
+  Promise.race([loadPromise, timeoutPromise])
+    .then(function () {
+      beginLoaderSequence();
+    })
+    .catch(function () {
+      beginLoaderSequence();
+    });
 
   // Fallback for browsers that never settle the image gate reliably (notably some
   // iOS Safari cases with local file access or deferred image timing).
@@ -314,6 +321,9 @@
 
     setTimeout(function () {
       opening.style.display = "none";
+      opening.style.visibility = "hidden";
+      invitation.style.display = "block";
+      invitation.style.opacity = "1";
       invitation.classList.add("visible");
       invitation.setAttribute("aria-hidden", "false");
       window.scrollTo({ top: 0, behavior: "auto" });
